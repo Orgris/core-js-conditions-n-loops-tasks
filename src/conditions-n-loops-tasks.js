@@ -420,8 +420,9 @@ function getSpiralMatrix(size) {
  *  ]                 ]
  */
 function rotateMatrix(matrix) {
+  const matrixRef = matrix;
   let size = 0;
-  while (matrix[size] !== undefined) {
+  while (matrixRef[size] !== undefined) {
     size += 1;
   }
 
@@ -431,15 +432,15 @@ function rotateMatrix(matrix) {
 
     for (let i = start; i < end; i += 1) {
       const offset = i - start;
-      const tempElement = matrix[start][i];
+      const tempElement = matrixRef[start][i];
 
-      matrix[start][i] = matrix[end - offset][start];
-      matrix[end - offset][start] = matrix[end][end - offset];
-      matrix[end][end - offset] = matrix[i][end];
-      matrix[i][end] = tempElement;
+      matrixRef[start][i] = matrixRef[end - offset][start];
+      matrixRef[end - offset][start] = matrixRef[end][end - offset];
+      matrixRef[end][end - offset] = matrixRef[i][end];
+      matrixRef[i][end] = tempElement;
     }
   }
-  return matrix;
+  return matrixRef;
 }
 
 /**
@@ -456,7 +457,9 @@ function rotateMatrix(matrix) {
  *  [2, 9, 5, 9]    => [2, 5, 9, 9]
  *  [-2, 9, 5, -3]  => [-3, -2, 5, 9]
  */
-function sortByAsc(/* arr */) { }
+function sortByAsc(/* arr */) {
+  throw new Error('Not implemented');
+}
 
 /**
  * Shuffles characters in a string so that the characters with an odd index are moved to the end of the string at each iteration.
@@ -476,7 +479,7 @@ function sortByAsc(/* arr */) { }
  *  'qwerty', 3 => 'qetwry' => 'qtrewy' => 'qrwtey'
  */
 function shuffleChar(/* str, iterations */) {
-
+  throw new Error('Not implemented');
 }
 
 /**

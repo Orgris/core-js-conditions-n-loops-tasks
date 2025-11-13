@@ -457,8 +457,22 @@ function rotateMatrix(matrix) {
  *  [2, 9, 5, 9]    => [2, 5, 9, 9]
  *  [-2, 9, 5, -3]  => [-3, -2, 5, 9]
  */
-function sortByAsc(/* arr */) {
-  throw new Error('Not implemented');
+function sortByAsc(arr) {
+  const str = arr;
+  let length = 0;
+  while (arr[length] !== undefined) {
+    length += 1;
+  }
+  for (let i = 0; i < length - 1; i += 1) {
+    for (let j = 0; j < length - 1 - i; j += 1) {
+      if (str[j + 1] < str[j]) {
+        const temp = str[j + 1];
+        str[j + 1] = str[j];
+        str[j] = temp;
+      }
+    }
+  }
+  return str;
 }
 
 /**
@@ -478,8 +492,29 @@ function sortByAsc(/* arr */) {
  *  '012345', 3 => '024135' => '043215' => '031425'
  *  'qwerty', 3 => 'qetwry' => 'qtrewy' => 'qrwtey'
  */
-function shuffleChar(/* str, iterations */) {
-  throw new Error('Not implemented');
+function shuffleChar(str, iterations) {
+  let result = str;
+  let left;
+  let right;
+
+  let length = 0;
+  while (str[length] !== undefined) {
+    length += 1;
+  }
+
+  for (let i = 0; i < iterations; i += 1) {
+    left = '';
+    right = '';
+    for (let j = 0; j < length; j += 1) {
+      if (j % 2 === 0) {
+        left += result[j];
+      } else {
+        right += result[j];
+      }
+    }
+    result = left + right;
+  }
+  return result;
 }
 
 /**
@@ -500,9 +535,9 @@ function shuffleChar(/* str, iterations */) {
  * 321321   => 322113
  *
  */
-// function getNearestBigger(/* number */) {
-//   throw new Error('Not implemented');
-// }
+function getNearestBigger(/* number */) {
+  throw new Error('Not implemented');
+}
 
 module.exports = {
   isPositive,
@@ -519,5 +554,5 @@ module.exports = {
   rotateMatrix,
   sortByAsc,
   shuffleChar,
-  // getNearestBigger,
+  getNearestBigger,
 };
